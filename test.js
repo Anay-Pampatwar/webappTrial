@@ -1,17 +1,19 @@
 
 let chai = require('chai');
 let chaiHTTP = require('chai-http');
-var should = chai.should(); 
+
 const app = require('./server.js');
 chai.use(chaiHTTP); 
-describe('Test111', () => {
-    it('200 OK', () => {
-        chai.request(app)
-            .get('/')
-            .end((err, response) => {
-                (response).should.have.status(200);
-                done();
-            });
-    });
-});
+const expect = chai.expect;
 
+
+describe('Health endpoint', function () {
+    it('should return 200 status code', function (done) {
+        chai.request(app)
+            .get('/')
+            .end(function (err, res) {
+                expect(res).to.have.status(200);
+                done();
+            });
+    });
+});
