@@ -14,4 +14,21 @@ describe('Test111', () => {
             });
     });
 });
+describe('Status and content', () => {
+  describe('Dummy GET', () => {
+    it('status', done => {
+      request('http://localhost:3000/', (_, response) => {
+        expect(response.statusCode).to.equal(200)
+        done()
+      })
+    })
+
+    it('content', done => {
+      request('http://localhost:3000/', (_, response) => {
+        expect(response.statusCode).to.equal(200)
+        done()
+      })
+    })
+  })
+})
 
